@@ -27,6 +27,9 @@ func main() {
 		}
 
 		symCallback, err := plug.Lookup("CmfiveCallback")
+
+		// There is an object here
+		fmt.Printf("%+v\n", symCallback)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
@@ -34,6 +37,9 @@ func main() {
 
 		var callback CmfiveCallback
 		callback, ok := symCallback.(CmfiveCallback)
+
+		// But nothing found here
+		fmt.Printf("%+v\n", callback)
 		if !ok {
 			fmt.Println("unexpected type from module symbol")
 			os.Exit(1)
